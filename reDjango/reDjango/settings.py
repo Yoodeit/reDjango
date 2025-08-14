@@ -37,7 +37,6 @@ SECRET_KEY = env('SECRET_KEY')
 # default=get_random_secret_key()
 # Raises Django's ImproperlyConfigured
 # exception if SECRET_KEY not in os.environ
-#SECRET_KEY = 'django-insecure-f8)rc_=2xk^dc6*)fu9%k(ju!dd+68^g6*fh$6dji4-vzz6ii*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
