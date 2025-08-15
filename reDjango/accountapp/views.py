@@ -6,4 +6,4 @@ from django.shortcuts import render
 
 def helloworld(request):
     #return HttpResponse('hello')
-    return render(request,'base.html')
+    return render(request,'accountapp/helloworld.html')
