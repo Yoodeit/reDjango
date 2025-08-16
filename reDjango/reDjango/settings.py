@@ -10,10 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-from pathlib import Path
-from django.core.management.utils import get_random_secret_key
-import environ
 import os
+from pathlib import Path
+
+import environ
+from django.core.management.utils import get_random_secret_key
+from django.urls import reverse_lazy
 
 env = environ.Env(
     # set casting, default value
@@ -139,6 +141,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
+LOGIN_REDIRECT_URL = reverse_lazy('accountapp:helloworld')
+LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:helloworld')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
