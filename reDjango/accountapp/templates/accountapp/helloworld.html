@@ -14,11 +14,13 @@
         <input type="submit" class="btn btn-primary" value="POST">
     </form>
 
-    {% if helloworld_output %}
+    {% if helloworld_list %}
+        {% for helloworld in helloworld_list %}
 
-    <h1>
-        {{ helloworld_output.text}}
-    </h1>
+    <h4>
+        {{ helloworld.text}}
+    </h4>
+        {% endfor %}
     {% endif %}
 </div>
 {% endblock %}

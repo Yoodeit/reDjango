@@ -1,0 +1,11 @@
+{
+  "python.languageServer": "Pylance",
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.extraPaths": [
+    "reDjango"          // manage.py가 있는 폴더명
+  ],
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"  // 또는 "always"
+  }
+
+}
