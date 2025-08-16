@@ -1,18 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div style="height: 10rem; background-color: #38df81; border-radius :1rem; margin: 2rem;">
-    <h1>
+<div style="border-radius :1rem; margin: 2rem; text-align: center;">
+    <h1 style="font-family: 'Oswald', cursive;">
         testing
     </h1>
 
     <form action="/account/helloworld/" method="post">
         {% csrf_token %}
+        <div>
+            <input type="text" name="helloworld_input">
+        </div>
         <input type="submit" class="btn btn-primary" value="POST">
     </form>
 
+    {% if helloworld_output %}
+
     <h1>
-        {{ text }}
+        {{ helloworld_output.text}}
     </h1>
+    {% endif %}
 </div>
 {% endblock %}
