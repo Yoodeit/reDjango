@@ -225,4 +225,7 @@ Temporary Items
 
 myvenv/
 .env
+db.sqlite3
+.idea/
+__pycache__
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,django,macos

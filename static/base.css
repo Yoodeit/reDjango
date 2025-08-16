@@ -1,0 +1,17 @@
+.footer_logo_ReDjango {
+    font-family: 'Oswald';
+}
+
+.footer_button_ReDjango {
+    font-size: .6rem;
+}
+
+.footer {
+    text-align : center;
+    margin-top: 2rem;
+}
+
+.header {
+    text-align: center;
+    margin: 3rem 0;
+}
