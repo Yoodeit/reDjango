@@ -11,4 +11,22 @@
 
     <!-- default css link -->
     <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+    <!-- <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumGoDigANiGoGoDing.css" rel="stylesheet"> -->
+    
+    {% load static %}
+    <style>
+        @font-face{
+            font-family: 'NanumGoDigANiGoGoDing';
+            src: url("{% static 'fonts/NanumGoDigANiGoGoDing.ttf' %}") format('truetype');
+            /* font-weight: 400; */
+            /* font-style: normal; */
+            /* font-display: swap; */
+        }
+
+
+        @font-face {
+            font-family: 'NanumHeuiMangNuRi';
+            src: url("{% static 'fonts/NanumHeuiMangNuRi.ttf' %}") format("truetype");
+        }
+    </style>
 </head>
