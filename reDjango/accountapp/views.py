@@ -1,11 +1,12 @@
 #from django.shortcuts import render
+from accountapp.forms import accountUpdateForm
 from accountapp.models import Helloworld
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DeleteView, DetailView, UpdateView
 
 # Create your views here.
 
@@ -33,3 +34,20 @@ class accountCreateView(CreateView):
     success_url = reverse_lazy('accountapp:helloworld')
     # 함수와 클래스가 파이썬에서 불러와지는 방식의 차이 때문에 클래스에서는 reverse_lazy를 써야 함. 기능은 똑같음
     template_name = 'accountapp/create.html'
+
+class accountDetailView(DetailView):
+    model = User
+    context_object_name = 'target_user'
+    template_name = 'accountapp/detail.html'
+
+class accountUpdateView(UpdateView):
+    model = User
+    form_class = accountUpdateForm
+    success_url = reverse_lazy('accountapp:helloworld')
+    # 함수와 클래스가 파이썬에서 불러와지는 방식의 차이 때문에 클래스에서는 reverse_lazy를 써야 함. 기능은 똑같음
+    template_name = 'accountapp/update.html'
+
+class accountDeleteView(DeleteView):
+    model = User
+    success_url = reverse_lazy('accountapp:login')
+    template_name = 'accountapp/delete.html'
