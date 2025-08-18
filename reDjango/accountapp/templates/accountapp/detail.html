@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-
 {% block content %}
 <div>
     <div style="text-align: center; max-width: 500px; margin: 4rem auto;">
@@ -7,20 +6,38 @@
             {{ target_user.date_joined }}
         </p>
 
+        
+
         {% if target_user.profile %}
+        <img src="{{ target_user.profile.image.url }}" alt=""
+        style="height: 14rem; width: 14rem; border-radius: 20rem; margin-bottom: 2rem;">
         <h2 style="font-family: 'NanumGoDigANiGoGoDing';">
-            {{ target_user.profile.nickname }} 
+            {{ target_user.profile.nickname }}
+                {% if target_user == user %} 
+                    <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+                       edit
+                    </a>
+                {% endif %}
         </h2>
+        <h5 style="margin-bottom: 3rem;">
+            {{ target_user.profile.message }}
+        </h5>
         {% else %}
-        <h2 style="font-family: 'NanumGoDigANiGoGoDing';">
-            NO PROFILE...
-        </h2>
-        <a href="{% url 'profileapp:create' %}">
-            <h2 style="font-family: 'NanumGoDigANiGoGoDing';">
-                Create Profile
-            </h2>
-        </a>
+        
+            {% if target_user == user %} 
+            <a href="{% url 'profileapp:create' %}">
+                <h2 style="font-family: 'NanumGoDigANiGoGoDing';">
+                    Create Profile
+                </h2>
+            </a>
+            {% else %}
+                <h2 style="font-family: 'NanumGoDigANiGoGoDing';">
+                    NO PROFILE...
+                </h2>   
+            {% endif %}
         {% endif %}
+
+        
 
         {% if target_user == user %}
         <a href="{% url 'accountapp:update' pk=user.pk %}">
