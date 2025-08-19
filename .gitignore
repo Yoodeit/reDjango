@@ -228,4 +228,5 @@ myvenv/
 db.sqlite3
 .idea/
 __pycache__
+media/
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,django,macos
