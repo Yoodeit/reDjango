@@ -10,7 +10,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
-from django.views.generic import CreateView, DeleteView, DetailView, UpdateView
+from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
+                                  UpdateView)
 from profileapp.forms import ProfileCreationForm
 from profileapp.models import Profile
 
@@ -55,3 +56,9 @@ class ArticleDeleteView(DeleteView):
     context_object_name = 'target_article'
     template_name = 'articleapp/delete.html'
     success_url = reverse_lazy('articleapp:list')
+
+class ArticleListView(ListView):
+    model = Article
+    content_object_name = 'article_list'
+    template_name = 'articleapp/list.html'
+    paginate_by = 6
