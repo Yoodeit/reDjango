@@ -4,14 +4,16 @@
         <a href="{% url 'accountapp:helloworld' %}" style="font-family: 'Oswald'; font-size: 7rem;">ReDjango</a>   
     </div>
     
-    <div style="font-size: 1.7rem; margin-top: 1rem;">
-        <a href="{% url 'articleapp:list' %}">
+    <div style="font-size: 1.7rem; margin-top: 1rem;" class="header_navbar">
+        <a href="{% url 'articleapp:list' %}"  class="header_nav">
             <span>Articles</span>
         </a>
-        <span>nav2</span>
+        <a href="{% url 'projectapp:list' %}" class="header_nav">
+            <span>Projects</span>
+        </a>
         <span>nav3</span>
         {% if user.is_authenticated %}
-            <a href="{% url 'accountapp:detail' pk=user.pk %}">
+            <a href="{% url 'accountapp:detail' pk=user.pk %}" class="header_nav">
                 <span>MyPage</span>
             </a>
             <form action="{% url 'accountapp:logout' %}" method="post" style="display:inline">
@@ -20,10 +22,10 @@
             <button type="submit" class="btn btn-link p-0 m-0 align-baseline">logout</button>
             </form>
         {% else %}
-            <a href="{% url 'accountapp:create' %}">
+            <a href="{% url 'accountapp:create' %}" class="header_nav">
                 <span>SignUp</span>
             </a>
-            <a href="{% url 'accountapp:login' %}?next={{ request.path }}">login</a>
+            <a href="{% url 'accountapp:login' %}?next={{ request.path }}" class="header_nav">login</a>
         {% endif %}
 
     </div>

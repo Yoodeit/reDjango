@@ -6,11 +6,9 @@
             {{ target_user.date_joined }}
         </p>
 
-        
-
         {% if target_user.profile %}
         <img src="{{ target_user.profile.image.url }}" alt=""
-        style="height: 14rem; width: 14rem; border-radius: 20rem; margin-bottom: 2rem;">
+        style="height: 14rem; width: 14rem; border-radius: 20rem; margin-bottom: 2rem; object-fit:cover">
         <h2 style="font-family: 'NanumGoDigANiGoGoDing';">
             {{ target_user.profile.nickname }}
                 {% if target_user == user %} 
@@ -51,6 +49,10 @@
             </p>
         </a>
         {% endif %}
+    </div>
+
+    <div>
+        {% include 'snippets/list_fragment.html' with article_list=object_list %}
     </div>
 </div>
 {% endblock %}

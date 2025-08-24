@@ -1,3 +1,12 @@
+a {
+    color: black;
+}
+
+a:hover {
+    color:black;
+    text-decoration:none;
+}
+
 .footer_logo_ReDjango {
     font-family: 'Oswald';
 }
@@ -16,8 +25,25 @@
     margin: 3rem 0;
 }
 
+.header_nav {
+    margin: 1rem 0.5rem;
+}
+
+.header_navbar {
+    margin: 1rem auto;
+}
+
 @media screen and (max-width:500px) {
     html {
         font-size: 13px;
     }
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color:black;
+    text-decoration:none;
 }
