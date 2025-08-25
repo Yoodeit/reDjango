@@ -3,7 +3,6 @@ import profile
 
 from accountapp.decorators import account_authorized
 from accountapp.forms import accountUpdateForm
-from accountapp.models import Helloworld
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User

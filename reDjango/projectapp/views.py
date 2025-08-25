@@ -3,7 +3,6 @@ import profile
 
 from accountapp.decorators import account_authorized
 from accountapp.forms import accountUpdateForm
-from accountapp.models import Helloworld
 from articleapp.models import Article
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
@@ -19,6 +18,7 @@ from django.views.generic.list import MultipleObjectMixin
 from profileapp.decorators import profile_authorized
 from projectapp.forms import ProjectCreateView
 from projectapp.models import Project
+from subscribeapp.models import Subscription
 
 # Create your views here.
 
@@ -37,8 +37,16 @@ class ProjectDetailView(DetailView, MultipleObjectMixin):
     paginate_by = 25
 
     def get_context_data(self, **kwargs):
+        project = self.object
+        user = self.request.user
+        if user.is_authenticated:
+            subscription = Subscription.objects.filter(user=user, project=project)
+        else:
+            subscription = None
         object_list = Article.objects.filter(project=self.get_object())
-        return super(ProjectDetailView, self).get_context_data(object_list=object_list, **kwargs)
+        return super(ProjectDetailView, self).get_context_data(object_list = object_list,
+                                                               subscription=subscription,
+                                                               **kwargs)
 
 class ProjectListView(ListView):
     model = Project

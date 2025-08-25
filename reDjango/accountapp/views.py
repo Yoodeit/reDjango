@@ -1,7 +1,6 @@
 #from django.shortcuts import render
 from accountapp.decorators import account_authorized
 from accountapp.forms import accountUpdateForm
-from accountapp.models import Helloworld
 from articleapp.models import Article
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
@@ -17,18 +16,7 @@ from django.views.generic.list import MultipleObjectMixin
 has_ownership = [login_required, account_authorized]
 # Create your views here.
 
-@login_required
-def helloworld(request):
-    #return HttpResponse('hello')
-    if request.method == "POST":
-        temp = request.POST.get('helloworld_input')
-        new_helloworld = Helloworld();
-        new_helloworld.text = temp
-        new_helloworld.save()
-        return HttpResponseRedirect(reverse('accountapp:helloworld'))
-    else:
-        helloworld_list = Helloworld.objects.all();
-        return render(request, 'accountapp/helloworld.html', context={'helloworld_list': helloworld_list})
+
 
     
 class accountCreateView(CreateView):
