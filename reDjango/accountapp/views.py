@@ -15,9 +15,6 @@ from django.views.generic.list import MultipleObjectMixin
 
 has_ownership = [login_required, account_authorized]
 # Create your views here.
-
-
-
     
 class accountCreateView(CreateView):
     model = User
